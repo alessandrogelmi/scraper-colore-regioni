@@ -10,3 +10,8 @@ Scraping del [sito del ministero della salute](https://www.salute.gov.it/portale
 che mostra per ogni zona di rischio le regioni che ne fanno parte.
 
 https://covid-regions-colors.herokuapp.com/
+
+### Built with
+* [Express](https://expressjs.com/)
+* [Node.js](https://nodejs.org/en/)
+* [Cheerio](https://cheerio.js.org/)
