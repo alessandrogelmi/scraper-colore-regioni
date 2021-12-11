@@ -9,7 +9,6 @@ const URL =
 
 async function scrapeData() {
   try {
-    console.log("Scraping data...");
     const { data } = await axios.get(URL);
     const $ = cheerio.load(data);
     const item = $("div .col-md-3 div");
@@ -39,17 +38,23 @@ async function scrapeData() {
         }
       });
     });
-    //console.log(zone)
-    return zone;
+
+    var responseObj = {};
+    zone.map((item) => {
+      for (var key in item) {
+        responseObj[key] = item[key];
+      }
+    });
+
+    return responseObj;
+
   } catch (err) {
     console.log(err);
   }
 }
 
-/* GET home page. */
 router.get("/", async function (req, res, next) {
   var result = await scrapeData();
-  console.log(result);
   res.json(result);
 });
 
